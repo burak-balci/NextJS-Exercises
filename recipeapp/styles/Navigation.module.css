@@ -1,0 +1,16 @@
+.container {
+  border-bottom: 1px solid rgb(64, 64, 64);
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.innerContainer {
+  width: 1200px;
+}
+.title {
+  color: rgb(64, 64, 64);
+  font-weight: bold;
+  font-size: xx-large;
+  text-decoration: none;
+}

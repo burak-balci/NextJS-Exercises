@@ -1,0 +1,28 @@
+.container {
+  width: 20%;
+  border: 2px solid rgb(84, 84, 84);
+  padding: 15px;
+  justify-content: center;
+  align-items: center;
+  background-color: grey;
+  border-radius: 15px;
+  cursor: pointer;
+}
+.image {
+  width: 200px;
+}
+.title {
+  font-weight: normal;
+  color: whitesmoke;
+}
+.desc {
+  color: whitesmoke;
+  font-weight: lighter;
+  text-align: center;
+  line-height: 30px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+}
