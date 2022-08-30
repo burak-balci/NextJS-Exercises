@@ -8,6 +8,7 @@ import styles from "../../styles/Home.module.css";
 
 const CategoryPage = ({ meals }: { meals: CategoryDesc[] }) => {
   const router = useRouter();
+
   return (
     <div className={styles.container}>
       <Head>
@@ -23,8 +24,6 @@ const CategoryPage = ({ meals }: { meals: CategoryDesc[] }) => {
     </div>
   );
 };
-
-//router.query.name
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const res = await fetch(
