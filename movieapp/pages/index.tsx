@@ -1,7 +1,8 @@
 import type { NextPage } from "next";
 import Head from "next/head";
-import Slider from "../components/Slider";
 import styles from "../styles/Home.module.css";
+import Slider from "../components/Slider";
+import Card from "../components/Card";
 
 const Home: NextPage = () => {
   return (
@@ -9,7 +10,14 @@ const Home: NextPage = () => {
       <div>
         <Slider />
       </div>
-      <div>Home</div>
+      <div className={styles.innerContainer}>
+        <Card />
+        <Card />
+        <Card />
+        <Card />
+        <Card />
+        <Card />
+      </div>
     </div>
   );
 };

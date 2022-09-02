@@ -3,7 +3,6 @@
 .container {
   padding: 0.5rem;
   background-color: #002b5b;
-  position: sticky;
 }
 .innerContainer {
   width: 1200px;
