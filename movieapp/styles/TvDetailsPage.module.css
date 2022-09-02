@@ -1,0 +1,41 @@
+.container {
+  margin: 0 auto;
+}
+
+.cover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 721px;
+  background-size: cover;
+  opacity: 1;
+  z-index: -1;
+}
+.cover::before {
+  content: "";
+  background: linear-gradient(to bottom, whitesmoke, transparent);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.title {
+  font-size: 30px;
+  font-weight: bold;
+  margin-top: 20px;
+  position: absolute;
+  color: #aa7622;
+}
+.desc {
+  font-size: 18px;
+  color: #aa7622;
+  line-height: 1.7;
+  margin-top: 70px;
+  font-weight: bolder;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  width: 1200px;
+  position: absolute;
+}
