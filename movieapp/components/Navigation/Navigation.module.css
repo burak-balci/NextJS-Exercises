@@ -1,0 +1,11 @@
+.container {
+  display: flex;
+  justify-content: center;
+  gap: 5rem;
+  padding: 0.5rem;
+  background-color: #2b4865;
+}
+.title {
+  color: #fec260;
+  font-weight: bold;
+}

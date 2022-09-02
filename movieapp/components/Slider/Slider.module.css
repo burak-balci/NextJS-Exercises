@@ -1,0 +1,14 @@
+.slider {
+  padding-top: 1rem;
+  padding-bottom: 2rem;
+  text-align: center;
+}
+.image {
+  border-radius: 15px;
+  margin-top: 1rem;
+}
+.title {
+  font-size: xx-large;
+  color: #002b5b;
+  font-family: "Bebas Neue", cursive;
+}
