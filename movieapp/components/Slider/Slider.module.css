@@ -6,6 +6,8 @@
 .image {
   border-radius: 15px;
   margin-top: 1rem;
+  width: 200px;
+  height: 330px;
 }
 .title {
   font-size: xx-large;

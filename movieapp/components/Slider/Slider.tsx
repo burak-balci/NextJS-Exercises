@@ -6,8 +6,15 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 import styles from "./Slider.module.css";
+import { Trending, Result } from "../../types";
+import { InferGetStaticPropsType } from "next";
+import Link from "next/link";
 
-const Slider = () => {
+export interface IProps {
+  data: Trending;
+}
+
+const Slider = ({ data }: IProps) => {
   return (
     <Swiper
       modules={[Navigation, Pagination, Scrollbar, A11y]}
@@ -19,79 +26,22 @@ const Slider = () => {
       scrollbar={{ draggable: true }}
       className={styles.slider}
     >
-      <SwiperSlide>
-        <img
-          src="https://www.themoviedb.org/t/p/w220_and_h330_face/sQhZqVWIbI2W4YluKEpd729z3Vb.jpg"
-          alt="asf"
-          className={styles.image}
-        />
-      </SwiperSlide>
-      <SwiperSlide>
-        <img
-          src="https://www.themoviedb.org/t/p/w220_and_h330_face/sQhZqVWIbI2W4YluKEpd729z3Vb.jpg"
-          alt="asf"
-          className={styles.image}
-        />
-      </SwiperSlide>
-      <SwiperSlide>
-        <img
-          src="https://www.themoviedb.org/t/p/w220_and_h330_face/sQhZqVWIbI2W4YluKEpd729z3Vb.jpg"
-          alt="asf"
-          className={styles.image}
-        />
-      </SwiperSlide>
-      <SwiperSlide>
-        <img
-          src="https://www.themoviedb.org/t/p/w220_and_h330_face/sQhZqVWIbI2W4YluKEpd729z3Vb.jpg"
-          alt="asf"
-          className={styles.image}
-        />
-      </SwiperSlide>
-      <SwiperSlide>
-        <img
-          src="https://www.themoviedb.org/t/p/w220_and_h330_face/sQhZqVWIbI2W4YluKEpd729z3Vb.jpg"
-          alt="asf"
-          className={styles.image}
-        />
-      </SwiperSlide>
-      <SwiperSlide>
-        <img
-          src="https://www.themoviedb.org/t/p/w220_and_h330_face/sQhZqVWIbI2W4YluKEpd729z3Vb.jpg"
-          alt="asf"
-          className={styles.image}
-        />
-      </SwiperSlide>
-      <SwiperSlide>
-        <img
-          src="https://www.themoviedb.org/t/p/w220_and_h330_face/sQhZqVWIbI2W4YluKEpd729z3Vb.jpg"
-          alt="asf"
-          className={styles.image}
-        />
-      </SwiperSlide>
-      <SwiperSlide>
-        <img
-          src="https://www.themoviedb.org/t/p/w220_and_h330_face/sQhZqVWIbI2W4YluKEpd729z3Vb.jpg"
-          alt="asf"
-          className={styles.image}
-        />
-      </SwiperSlide>
-      <SwiperSlide>
-        <img
-          src="https://www.themoviedb.org/t/p/w220_and_h330_face/sQhZqVWIbI2W4YluKEpd729z3Vb.jpg"
-          alt="asf"
-          className={styles.image}
-        />
-      </SwiperSlide>
-      <SwiperSlide>
-        <img
-          src="https://www.themoviedb.org/t/p/w220_and_h330_face/sQhZqVWIbI2W4YluKEpd729z3Vb.jpg"
-          alt="asf"
-          className={styles.image}
-        />
-      </SwiperSlide>
       <span className={styles.title} slot="container-start">
-        TRENDING
+        TRENDING MOVIES & TV
       </span>
+      {data.results.map((item: Result) => (
+        <SwiperSlide key={item.id}>
+          <Link href={`trendingdetails/${item.id}`}>
+            <a>
+              <img
+                src={`https://image.tmdb.org/t/p/original${item.poster_path}`}
+                alt={item.title}
+                className={styles.image}
+              />
+            </a>
+          </Link>
+        </SwiperSlide>
+      ))}
     </Swiper>
   );
 };
