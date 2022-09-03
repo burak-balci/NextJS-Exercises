@@ -24,7 +24,7 @@ const Header = () => {
     <div className={styles.container}>
       <div className={styles.innerContainer}>
         <div className={styles.title}>
-          <Link href="/">BB Movies</Link>
+          <Link href="/">BB MOVIES</Link>
         </div>
         <form onSubmit={handleSubmit} className={styles.form}>
           <input

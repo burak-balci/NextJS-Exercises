@@ -10,9 +10,10 @@ export interface IProps {
 
 const Card = ({ movie }: IProps) => {
   const { route } = useRouter();
+
   if (route == "/populartv") {
     return (
-      <Link href={`/trendingdetails/${movie.id}`}>
+      <Link href={`/populartv/${movie.id}`}>
         <a className={styles.container}>
           <div>
             <img

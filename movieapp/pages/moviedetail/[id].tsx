@@ -3,12 +3,17 @@ import React from "react";
 import type { GetServerSideProps } from "next";
 import styles from "../../styles/TvDetailsPage.module.css";
 import { MovieDetails } from "../../types";
+import Head from "next/head";
 
 const MovieDetailPage = ({ data }: { data: MovieDetails }) => {
   const route = useRouter();
 
   return (
     <div className={styles.container}>
+      <Head>
+        <title>BBMovies | {data.title}</title>
+        <meta name="description" content={`${data.title} detail`} />
+      </Head>
       <div
         className={styles.cover}
         style={{

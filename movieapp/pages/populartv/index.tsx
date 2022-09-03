@@ -3,12 +3,17 @@ import { PopularMovies } from "../../types";
 import { InferGetStaticPropsType } from "next";
 import Card from "../../components/Card";
 import styles from "../../styles/PopularTvPage.module.css";
+import Head from "next/head";
 
 const PopularTvPage = ({
   results,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
   return (
     <div className={styles.innerContainer}>
+      <Head>
+        <title>BBMovies | Popular TV</title>
+        <meta name="description" content="Popular TV" />
+      </Head>
       {results.map((movie) => (
         <Card key={movie.id} movie={movie} />
       ))}

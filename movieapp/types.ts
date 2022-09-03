@@ -60,6 +60,7 @@ export interface SpokenLanguage {
 }
 
 export interface MovieDetails {
+  results: any;
   adult: boolean;
   backdrop_path: string;
   belongs_to_collection: BelongsToCollection;

@@ -3,13 +3,17 @@ import { PopularMovies } from "../../types";
 import { InferGetStaticPropsType } from "next";
 import Card from "../../components/Card";
 import styles from "../../styles/TopRatedMoviesPage.module.css";
+import Head from "next/head";
 
 const TopRatedMoviesPage = ({
   results,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
-  console.log(results);
   return (
     <div className={styles.innerContainer}>
+      <Head>
+        <title>BBMovies | Top Rated Movies</title>
+        <meta name="description" content="Top rated movies" />
+      </Head>
       {results.map((movie) => (
         <Card key={movie.id} movie={movie} />
       ))}

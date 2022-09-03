@@ -3,6 +3,7 @@ import React from "react";
 import type { InferGetStaticPropsType } from "next";
 import { Result } from "../../types";
 import styles from "../../styles/TvDetailsPage.module.css";
+import Head from "next/head";
 
 const TvDetailsPage = ({
   data,
@@ -14,6 +15,13 @@ const TvDetailsPage = ({
 
   return (
     <div className={styles.container}>
+      <Head>
+        <title>BBMovies | {filtered[0].name || filtered[0].title}</title>
+        <meta
+          name="description"
+          content={`${filtered[0].name || filtered[0].title} detail`}
+        />
+      </Head>
       <div
         className={styles.cover}
         style={{
@@ -30,7 +38,7 @@ const TvDetailsPage = ({
 
 export const getStaticPaths = async () => {
   const res = await fetch(
-    `https://api.themoviedb.org/3/tv/popular?api_key=${process.env.API_KEY}&language=en-US&page=1`
+    `https://api.themoviedb.org/3/trending/all/week?api_key=${process.env.API_KEY}`
   );
 
   const data = await res.json();
@@ -49,7 +57,7 @@ export const getStaticPaths = async () => {
 
 export const getStaticProps = async () => {
   const res = await fetch(
-    `https://api.themoviedb.org/3/tv/popular?api_key=${process.env.API_KEY}&language=en-US&page=1`
+    `https://api.themoviedb.org/3/trending/all/week?api_key=${process.env.API_KEY}`
   );
   const data = await res.json();
 

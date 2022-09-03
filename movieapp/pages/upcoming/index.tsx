@@ -3,13 +3,17 @@ import { PopularMovies } from "../../types";
 import { InferGetStaticPropsType } from "next";
 import Card from "../../components/Card";
 import styles from "../../styles/UpcomingMoviesPage.module.css";
+import Head from "next/head";
 
 const UpcomingMoviesPage = ({
   results,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
-  console.log(results);
   return (
     <div className={styles.innerContainer}>
+      <Head>
+        <title>BBMovies | Upcoming Movies</title>
+        <meta name="description" content="Upcoming movies" />
+      </Head>
       {results.map((movie) => (
         <Card key={movie.id} movie={movie} />
       ))}

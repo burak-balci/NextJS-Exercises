@@ -4,12 +4,16 @@ import type { GetServerSideProps } from "next";
 import { PopularMovies, Result } from "../../types";
 import styles from "../../styles/SearchPage.module.css";
 import Card from "../../components/Card";
+import Head from "next/head";
 
 const SearchPage = ({ results }: { results: Result[] }) => {
   const route = useRouter();
 
   return (
     <div className={styles.innerContainer}>
+      <Head>
+        <title>BBMovies </title>
+      </Head>
       {results.map((movie) => (
         <Card key={movie.id} movie={movie} />
       ))}

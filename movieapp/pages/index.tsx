@@ -11,6 +11,10 @@ const Home = ({
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
   return (
     <div>
+      <Head>
+        <title>BBMovies | Home</title>
+        <meta name="description" content="Movies and TV" />
+      </Head>
       <div>
         <Slider data={data} />
       </div>
