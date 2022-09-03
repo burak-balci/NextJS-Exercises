@@ -20,11 +20,16 @@
 }
 .input {
   display: flex;
-  width: 50%;
-  margin: 0 auto;
+  width: 100%;
   height: 100%;
   border-radius: 5px;
   outline: none;
   padding: 5px;
   background-color: whitesmoke;
+  border-right: 0px;
+}
+.form {
+  display: flex;
+  width: 50%;
+  margin: 0 auto;
 }
