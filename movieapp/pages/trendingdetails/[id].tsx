@@ -1,13 +1,11 @@
 import { useRouter } from "next/router";
 import React from "react";
-import type { InferGetStaticPropsType } from "next";
-import { Result } from "../../types";
+import type { GetServerSideProps } from "next";
+import { Result, TopRated } from "../../types";
 import styles from "../../styles/TvDetailsPage.module.css";
 import Head from "next/head";
 
-const TvDetailsPage = ({
-  data,
-}: InferGetStaticPropsType<typeof getStaticProps>) => {
+const TvDetailsPage = ({ data }: { data: TopRated }) => {
   const route = useRouter();
   const filtered = data.results.filter(
     (item: Result) => Number(item.id) === Number(route.query.id)
@@ -36,26 +34,7 @@ const TvDetailsPage = ({
   );
 };
 
-export const getStaticPaths = async () => {
-  const res = await fetch(
-    `https://api.themoviedb.org/3/trending/all/week?api_key=${process.env.API_KEY}`
-  );
-
-  const data = await res.json();
-
-  const paths = data.results.map((item: Result) => {
-    return {
-      params: { id: item.id.toString() },
-    };
-  });
-
-  return {
-    paths,
-    fallback: false,
-  };
-};
-
-export const getStaticProps = async () => {
+export const getServerSideProps: GetServerSideProps = async (context) => {
   const res = await fetch(
     `https://api.themoviedb.org/3/trending/all/week?api_key=${process.env.API_KEY}`
   );
