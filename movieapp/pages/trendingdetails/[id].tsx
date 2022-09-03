@@ -1,7 +1,7 @@
 import { useRouter } from "next/router";
 import React from "react";
 import type { InferGetStaticPropsType } from "next";
-import { Trending, Result } from "../../types";
+import { Result } from "../../types";
 import styles from "../../styles/TvDetailsPage.module.css";
 
 const TvDetailsPage = ({
@@ -11,7 +11,6 @@ const TvDetailsPage = ({
   const filtered = data.results.filter(
     (item: Result) => Number(item.id) === Number(route.query.id)
   );
-  console.log(filtered[0]);
 
   return (
     <div className={styles.container}>
@@ -31,7 +30,7 @@ const TvDetailsPage = ({
 
 export const getStaticPaths = async () => {
   const res = await fetch(
-    `https://api.themoviedb.org/3/trending/all/week?api_key=${process.env.API_KEY}`
+    `https://api.themoviedb.org/3/tv/popular?api_key=${process.env.API_KEY}&language=en-US&page=1`
   );
 
   const data = await res.json();
@@ -50,7 +49,7 @@ export const getStaticPaths = async () => {
 
 export const getStaticProps = async () => {
   const res = await fetch(
-    `https://api.themoviedb.org/3/trending/all/week?api_key=${process.env.API_KEY}`
+    `https://api.themoviedb.org/3/tv/popular?api_key=${process.env.API_KEY}&language=en-US&page=1`
   );
   const data = await res.json();
 
